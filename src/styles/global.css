@@ -5698,3 +5698,7 @@ select.input option {
     radial-gradient(900px 700px at 50% 118%, rgba(12, 12, 18, 0.5), transparent 64%),
     linear-gradient(160deg, #0d0a15 0%, #08080b 55%, #070709 100%);
 }
+
+.catalog-layout {
+  display: block;
+}

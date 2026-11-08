@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  Download,
   ExternalLink,
   FolderOpen,
   Package,
@@ -500,37 +499,6 @@ export function CatalogBrowser({
               </>
             )}
           </div>
-          <aside className="detail-pane">
-            {selected ? (
-              <DetailCard
-                project={selected}
-                versions={detailVersions}
-                plan={detailPlan}
-                loading={detailLoading}
-                installed={installed}
-                installingId={installingId}
-                onInstall={(version) => void installVersion(version)}
-                onClose={() => setSelected(null)}
-                onOpenProject={() =>
-                  selected.externalUrl
-                    ? void window.openclient.app.openExternal(selected.externalUrl)
-                    : undefined
-                }
-              />
-            ) : (
-              <div className="detail-card">
-                <div className="empty" style={{ padding: "34px 12px" }}>
-                  <div className="empty-icon">
-                    <Download size={22} />
-                  </div>
-                  <div className="empty-title">Pick a project</div>
-                  <p className="empty-text">
-                    Select a card to see compatible versions, dependencies and license.
-                  </p>
-                </div>
-              </div>
-            )}
-          </aside>
         </div>
       ) : (
         <InstalledList
@@ -543,7 +511,7 @@ export function CatalogBrowser({
       )}
 
       <Dialog
-        open={detailOpen && selected !== null && window.innerWidth < 980}
+        open={detailOpen && selected !== null}
         onClose={() => setDetailOpen(false)}
         title={selected?.name ?? "Project"}
         description={selected?.summary}
