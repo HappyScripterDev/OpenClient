@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "openclient",
+  "version": "${version}",
+  "name": "OpenClient Mod",
+  "description": "Client-side HUD, toggle sprint and zoom for OpenClient. No cheats, no automation, no unfair advantages.",
+  "authors": [
+    "OpenClient"
+  ],
+  "contact": {
+    "homepage": "https://github.com/HappyScripterDev/OpenClient",
+    "sources": "https://github.com/HappyScripterDev/OpenClient.git"
+  },
+  "license": "MIT",
+  "icon": "assets/openclient/textures/gui/logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "app.openclient.OpenClientMod"
+    ]
+  },
+  "mixins": [
+    "openclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

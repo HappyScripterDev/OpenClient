@@ -1,0 +1,65 @@
+import type { AppSettings } from "./types";
+import { DEFAULT_MICROSOFT_CLIENT_ID, SETTINGS_SCHEMA } from "./constants";
+
+export const DEFAULT_SETTINGS: AppSettings = {
+  schemaVersion: SETTINGS_SCHEMA,
+  language: "en",
+  theme: "dark",
+  accent: "#8b6cff",
+  reduceMotion: false,
+  compactSidebar: false,
+  closeToTray: true,
+  minimizeToTray: true,
+  launchOnStartup: false,
+  autoCheckUpdates: true,
+  updateFeedUrl: "",
+  telemetry: false,
+  catalogSource: "modrinth",
+  curseforgeApiKey: "",
+  microsoftClientId: DEFAULT_MICROSOFT_CLIENT_ID,
+  defaultEdition: "java",
+  selectedJavaProfileId: "",
+  selectedBedrockProfileId: "",
+  memoryMb: 4096,
+  jvmPreset: "g1-balanced",
+  javaPath: "",
+  dataRoot: "",
+  bedrockGameDir: "",
+  downloadConcurrency: 8,
+  keepLauncherOpen: true,
+  showSnapshots: false,
+  confirmOnExit: true,
+  lastNewsSeenAt: 0,
+  eulaAccepted: false,
+};
+
+export const KNOWN_CROSSPLAY_SERVERS = [
+  {
+    name: "The Hive",
+    address: "play.hivemc.com",
+    port: 25565,
+    edition: "both" as const,
+    crossPlay: "both" as const,
+  },
+  {
+    name: "CubeCraft",
+    address: "play.cubecraft.net",
+    port: 25565,
+    edition: "both" as const,
+    crossPlay: "both" as const,
+  },
+  {
+    name: "Hypixel",
+    address: "mc.hypixel.net",
+    port: 25565,
+    edition: "java" as const,
+    crossPlay: "java" as const,
+  },
+  {
+    name: "Purple Prison",
+    address: "play.purpleprison.net",
+    port: 25565,
+    edition: "java" as const,
+    crossPlay: "java" as const,
+  },
+];

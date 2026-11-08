@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenClient - A calmer way to launch Minecraft</title>
+    <meta
+      name="description"
+      content="OpenClient is a glass-clean Minecraft launcher for Java and Bedrock Edition. Verified downloads, Microsoft sign-in, performance profiles, mods, worlds and a client HUD."
+    />
+    <meta property="og:title" content="OpenClient" />
+    <meta
+      property="og:description"
+      content="A performance and quality-of-life launcher for Minecraft Java and Bedrock."
+    />
+    <meta property="og:image" content="assets/logo.png" />
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="grid"></div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="OpenClient home">
+        <img src="assets/logo.png" alt="" />
+        <span>OpenClient</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#java">Java</a>
+        <a href="#hud">HUD</a>
+        <a href="#bedrock">Bedrock</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://github.com/HappyScripterDev/OpenClient" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn-primary" href="https://github.com/HappyScripterDev/OpenClient/releases" target="_blank" rel="noreferrer">Download</a>
+      </div>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="dot"></span> Minecraft Java and Bedrock</div>
+          <h1>Your Minecraft,<span> quieter.</span></h1>
+          <p class="lede">
+            A glass-clean desktop launcher with verified downloads, one-click performance
+            profiles, curated mods, world backups and a client HUD. Built to feel calm,
+            not crowded.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="https://github.com/HappyScripterDev/OpenClient/releases" target="_blank" rel="noreferrer">
+              Download for Windows
+            </a>
+            <a class="btn btn-glass btn-lg" href="#features">Explore features</a>
+          </div>
+          <div class="hero-meta">
+            <span>Windows installer and portable build</span>
+            <span class="sep"></span>
+            <span>Linux and macOS for Java</span>
+            <span class="sep"></span>
+            <span>Open source</span>
+          </div>
+        </div>
+
+        <div class="app-mock reveal" aria-label="OpenClient interface preview">
+          <div class="mock-titlebar">
+            <div class="mock-brand"><img src="assets/logo.png" alt="" /><span>OpenClient</span></div>
+            <div class="mock-context">Home · Java Edition · Main</div>
+            <div class="mock-controls"><i></i><i></i><i></i></div>
+          </div>
+          <div class="mock-body">
+            <aside class="mock-sidebar">
+              <div class="mock-switch"><span class="on">Java</span><span>Bedrock</span></div>
+              <div class="mock-nav active"><i></i>Home</div>
+              <div class="mock-nav"><i></i>Profiles</div>
+              <div class="mock-nav"><i></i>Mods</div>
+              <div class="mock-nav"><i></i>HUD</div>
+              <div class="mock-nav"><i></i>Packs</div>
+              <div class="mock-nav"><i></i>Servers</div>
+              <div class="mock-nav"><i></i>Logs</div>
+              <div class="mock-account"><span class="mock-avatar"></span><span>Signed in</span></div>
+            </aside>
+            <div class="mock-main">
+              <div class="mock-hero">
+                <div class="mock-hero-top">
+                  <span class="pill">Java Edition</span>
+                  <span class="pill ghost">Balanced</span>
+                </div>
+                <div class="mock-title"><small>Welcome back,</small>Main</div>
+                <div class="mock-meta">1.21.1 · Fabric 0.16.9 · 4 GB allocated</div>
+                <div class="mock-play"><span class="play-triangle"></span>Play</div>
+                <div class="mock-orb"></div>
+              </div>
+              <div class="mock-stats">
+                <div><small>FPS profile</small><strong>Balanced</strong><em>Options tuned</em></div>
+                <div><small>Memory</small><strong>4 GB</strong><em>32 GB system</em></div>
+                <div><small>Java</small><strong>Java 21</strong><em>Managed</em></div>
+                <div><small>Mods</small><strong>9</strong><em>Fabric</em></div>
+              </div>
+              <div class="mock-panels">
+                <div class="mock-panel">
+                  <div class="mock-panel-title">News &amp; service status</div>
+                  <div class="line w80"></div><div class="line w65"></div><div class="line w72"></div>
+                </div>
+                <div class="mock-panel">
+                  <div class="mock-panel-title">Mojang services</div>
+                  <div class="status-line"><span class="ok"></span><span>Authentication</span><em>Operational</em></div>
+                  <div class="status-line"><span class="ok"></span><span>Sessions</span><em>Operational</em></div>
+                  <div class="status-line"><span class="ok"></span><span>Assets</span><em>Operational</em></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-hud">
+            <div class="hud-fps"><b>238</b> FPS</div>
+            <div class="hud-cps"><b>9</b> CPS</div>
+            <div class="hud-ping"><b>23</b> ms</div>
+            <div class="hud-keys"><span>W</span><span>A</span><span>S</span><span>D</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-head reveal">
+          <div class="eyebrow">The launcher</div>
+          <h2>Everything you need. Nothing shouting at you.</h2>
+          <p>
+            OpenClient handles the boring parts carefully: version manifests, libraries, assets,
+            checksums, Java runtimes and sessions. The interface stays out of the way.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="glass-card reveal">
+            <div class="card-icon">01</div>
+            <h3>Verified game files</h3>
+            <p>
+              Mojang's official manifest drives client jars, libraries, natives, assets and the
+              per-OS classpath. Every file is checksum-checked, downloaded in parallel and resumed
+              if interrupted.
+            </p>
+          </article>
+          <article class="glass-card reveal">
+            <div class="card-icon">02</div>
+            <h3>Microsoft sign-in</h3>
+            <p>
+              Official OAuth device flow for Microsoft, Xbox Live and Minecraft services. Tokens are
+              encrypted with your operating system keychain and refresh silently. Your password
+              never touches OpenClient.
+            </p>
+          </article>
+          <article class="glass-card reveal">
+            <div class="card-icon">03</div>
+            <h3>One-click profiles</h3>
+            <p>
+              Fabric, Quilt, Forge and NeoForge installs are one action. Each profile keeps its own
+              version, loader, mods, packs, JVM arguments and game directory. Duplicate or repair it
+              at any time.
+            </p>
+          </article>
+          <article class="glass-card reveal">
+            <div class="card-icon">04</div>
+            <h3>Performance, honestly</h3>
+            <p>
+              Ultra FPS, Balanced and Quality presets resolve version-aware mod sets from Modrinth,
+              install dependencies, tune options.txt and apply JVM flags. No mystery executables.
+            </p>
+          </article>
+          <article class="glass-card reveal">
+            <div class="card-icon">05</div>
+            <h3>Mods and packs</h3>
+            <p>
+              Browse Modrinth (CurseForge optional) with author and license shown before install.
+              Dependencies are resolved, hashes verified and updates surfaced. Nothing is bundled
+              inside the installer.
+            </p>
+          </article>
+          <article class="glass-card reveal">
+            <div class="card-icon">06</div>
+            <h3>Logs that help</h3>
+            <p>
+              Live console output, level filters, redacted access tokens, crash report viewer and a
+              repair action that revalidates the client, libraries and assets.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="java">
+        <div class="section-head reveal">
+          <div class="eyebrow">Java Edition</div>
+          <h2>A real launch pipeline, not a shortcut.</h2>
+          <p>
+            OpenClient reads the official Mojang version manifest, merges loader profiles, builds
+            the classpath and arguments with per-OS rules, extracts natives and starts the exact
+            Java major the version needs.
+          </p>
+          <ul class="check-list">
+            <li>Release, snapshot and old version support</li>
+            <li>Fabric, Quilt, Forge and NeoForge</li>
+            <li>Temurin JRE download with SHA-256 verification when Java is missing</li>
+            <li>G1GC, low-latency and ZGC presets with editable arguments</li>
+            <li>Automatic memory recommendation from system memory</li>
+            <li>Offline launch with cached manifests and validated files</li>
+          </ul>
+        </div>
+        <div class="terminal reveal" aria-label="Launch pipeline">
+          <div class="terminal-head"><span></span><span></span><span></span><em>openclient / launch</em></div>
+          <pre><code><span class="t-muted">[versions]</span> Resolving 1.21.1-fabric
+<span class="t-ok">[ok]</span> version json merged
+<span class="t-ok">[ok]</span> 84 libraries verified
+<span class="t-ok">[ok]</span> 2,148 assets verified
+<span class="t-ok">[ok]</span> Java 21 runtime selected
+<span class="t-ok">[ok]</span> session refreshed silently
+<span class="t-accent">[launch]</span> starting Minecraft 1.21.1
+<span class="t-muted">natives</span> extracted · classpath built · args redacted</code></pre>
+        </div>
+      </section>
+
+      <section class="section" id="hud">
+        <div class="section-head reveal">
+          <div class="eyebrow">Companion mod</div>
+          <h2>A HUD you actually choose.</h2>
+          <p>
+            The OpenClient Mod is a client-side Fabric mod. Configure FPS, CPS, ping, coordinates,
+            keystrokes, armor, clock and memory in the launcher, then drag the layout in game.
+          </p>
+        </div>
+        <div class="hud-showcase reveal">
+          <div class="hud-scene">
+            <div class="hud-preview-cross"></div>
+            <div class="hud-chip hud-chip-fps"><b>238</b> FPS</div>
+            <div class="hud-chip hud-chip-cps"><b>9 | 5</b> CPS</div>
+            <div class="hud-chip hud-chip-ping"><b>23</b> MS</div>
+            <div class="hud-chip hud-chip-coords">X 128 Y 71 Z -342 <em>Overworld</em></div>
+            <div class="hud-keyset">
+              <span>W</span>
+              <div><span>A</span><span>S</span><span>D</span></div>
+              <span class="wide">SPACE</span>
+            </div>
+            <div class="hud-armor-slots"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="hud-side">
+            <div class="hud-control"><span>FPS</span><i class="on"></i></div>
+            <div class="hud-control"><span>CPS</span><i class="on"></i></div>
+            <div class="hud-control"><span>Ping</span><i class="on"></i></div>
+            <div class="hud-control"><span>Coordinates</span><i class="on"></i></div>
+            <div class="hud-control"><span>Keystrokes</span><i class="on"></i></div>
+            <div class="hud-control"><span>Armor</span><i class="on"></i></div>
+            <div class="hud-control"><span>Toggle sprint</span><i class="on"></i></div>
+            <div class="hud-control"><span>Zoom</span><i class="on"></i></div>
+            <p class="small">
+              No combat automation, x-ray, kill aura or movement exploits. The mod is visual and
+              input quality-of-life only.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split" id="bedrock">
+        <div class="section-head reveal">
+          <div class="eyebrow">Bedrock Edition</div>
+          <h2>Maximum support, without pretending.</h2>
+          <p>
+            Bedrock has no official mod API. OpenClient does everything the platform actually
+            allows and tells you where the line is.
+          </p>
+          <div class="two-lists">
+            <div>
+              <h4>What works</h4>
+              <ul class="check-list">
+                <li>Detect and launch the Windows Store / Xbox app install</li>
+                <li>Import .mcpack, .mcaddon, .mcworld and .mctemplate files</li>
+                <li>Manage resource, behavior and skin packs</li>
+                <li>Back up, restore, duplicate, export and import worlds</li>
+                <li>Tune Bedrock graphics options with a backup</li>
+                <li>RakNet server ping, favorites and cross-play tags</li>
+              </ul>
+            </div>
+            <div>
+              <h4>What it cannot do</h4>
+              <ul class="cross-list">
+                <li>Load Java-style client mods</li>
+                <li>Inject code into the game</li>
+                <li>Guarantee a direct join on every Bedrock build</li>
+                <li>Access data folders on consoles or mobile</li>
+                <li>Provide cheats or unfair gameplay advantages</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bedrock-card reveal">
+          <img src="assets/logo.png" alt="" />
+          <h3>Cross-play aware</h3>
+          <p>
+            Servers carry a Java, Bedrock or Both tag. One click launches the matching edition and
+            pre-fills the address. Cross-play metadata is user-maintained, never guessed.
+          </p>
+          <div class="server-row">
+            <span class="status-dot"></span>
+            <div><strong>The Hive</strong><small>play.hivemc.com</small></div>
+            <span class="tag">Both</span>
+          </div>
+          <div class="server-row">
+            <span class="status-dot"></span>
+            <div><strong>Hypixel</strong><small>mc.hypixel.net</small></div>
+            <span class="tag java">Java</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="security">
+        <div class="section-head reveal">
+          <div class="eyebrow">Security &amp; privacy</div>
+          <h2>Boring in the best way.</h2>
+        </div>
+        <div class="security-grid">
+          <div class="glass-card reveal"><h3>No passwords</h3><p>Microsoft's own pages handle sign-in. OpenClient stores encrypted refresh tokens only.</p></div>
+          <div class="glass-card reveal"><h3>No telemetry</h3><p>No analytics, no usage beacons, no third-party tracking. Network calls go to Mojang, Microsoft, Modrinth and CurseForge only.</p></div>
+          <div class="glass-card reveal"><h3>No injected cheats</h3><p>Performance and quality-of-life features only. The companion mod is open source and auditable.</p></div>
+          <div class="glass-card reveal"><h3>Open source</h3><p>Every line is public. The installer ships no third-party mods; they are downloaded at runtime with author and license shown.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head reveal">
+          <div class="eyebrow">FAQ</div>
+          <h2>Before you install.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>Do I need to own Minecraft?</summary>
+            <p>Yes. Java Edition requires a Microsoft account that owns the game. OpenClient verifies ownership through Minecraft services and never asks for your password.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does OpenClient include mods?</summary>
+            <p>No third-party mods are bundled. Performance and catalog mods are downloaded from Modrinth (and optionally CurseForge) at runtime, with author and license shown.</p>
+          </details>
+          <details class="reveal">
+            <summary>Can I use it without an account?</summary>
+            <p>The desktop app asks you to sign in before the workspace opens. This keeps sessions and profiles consistent and avoids launching with an invalid identity.</p>
+          </details>
+          <details class="reveal">
+            <summary>Why does Bedrock have fewer features?</summary>
+            <p>Bedrock has no official client mod API. OpenClient manages the files and settings the platform exposes instead of injecting code or making unsupported promises.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is the HUD a cheat?</summary>
+            <p>No. It displays information the game already exposes and adds toggle sprint and zoom, which are client quality-of-life features. It contains no combat automation, x-ray or movement exploits.</p>
+          </details>
+          <details class="reveal">
+            <summary>Which platforms are supported?</summary>
+            <p>Windows is the primary target for the installer and Bedrock support. Linux and macOS builds are supported for Java Edition where its runtime works.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section cta reveal">
+        <img src="assets/logo.png" alt="" />
+        <h2>Ready for a quieter launch?</h2>
+        <p>Read the source, build it, or download the latest installer from the public repository.</p>
+        <div class="hero-actions center">
+          <a class="btn btn-primary btn-lg" href="https://github.com/HappyScripterDev/OpenClient/releases" target="_blank" rel="noreferrer">Download OpenClient</a>
+          <a class="btn btn-glass btn-lg" href="https://github.com/HappyScripterDev/OpenClient" target="_blank" rel="noreferrer">View on GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="" />
+        <div><strong>OpenClient</strong><span>A calmer Minecraft launcher.</span></div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="https://github.com/HappyScripterDev/OpenClient" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/HappyScripterDev/OpenClient.git" target="_blank" rel="noreferrer">Repository</a>
+        <a href="https://www.minecraft.net/en-us/eula" target="_blank" rel="noreferrer">Minecraft EULA</a>
+      </nav>
+      <p>Not affiliated with Mojang or Microsoft. Minecraft is a trademark of Mojang Synergies AB.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
