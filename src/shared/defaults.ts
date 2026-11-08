@@ -12,7 +12,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   minimizeToTray: true,
   launchOnStartup: false,
   autoCheckUpdates: true,
-  updateFeedUrl: "",
+  updateFeedUrl: "https://github.com/HappyScripterDev/OpenClient/releases/latest/download",
   telemetry: false,
   catalogSource: "modrinth",
   curseforgeApiKey: "",
