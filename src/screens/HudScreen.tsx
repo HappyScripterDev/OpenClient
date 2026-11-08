@@ -48,6 +48,7 @@ export function HudScreen() {
   const [saving, setSaving] = useState(false);
   const [dragging, setDragging] = useState<HudElementKey | null>(null);
   const [installing, setInstalling] = useState(false);
+  const [creating, setCreating] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
   const previewRef = useRef<HTMLDivElement>(null);
   const [now, setNow] = useState(Date.now());
@@ -109,6 +110,27 @@ export function HudScreen() {
       appStore.toast("Could not save HUD", "error", errorMessage(error));
     } finally {
       setSaving(false);
+    }
+  };
+
+  const createHudProfile = async (): Promise<void> => {
+    setCreating(true);
+    try {
+      const created = await unwrap(
+        window.openclient.profiles.create({
+          name: "HUD 1.21.1",
+          edition: "java",
+          gameVersion: "1.21.1",
+          loader: "fabric",
+        }),
+      );
+      await appStore.refreshProfiles();
+      await appStore.selectProfile(created.id);
+      appStore.toast("HUD profile created", "success", "Install the HUD, then press Play.");
+    } catch (error) {
+      appStore.toast("Could not create profile", "error", errorMessage(error));
+    } finally {
+      setCreating(false);
     }
   };
 
@@ -231,6 +253,9 @@ export function HudScreen() {
             {loaderLabel(javaProfile.loader)}. Switch the profile loader or create a Fabric profile
             to use the HUD.
           </div>
+          <Button variant="primary" size="sm" loading={creating} onClick={() => void createHudProfile()}>
+            Create HUD profile
+          </Button>
         </div>
       ) : null}
       {!javaProfile.gameVersion.startsWith("1.21.") ? (
@@ -242,6 +267,9 @@ export function HudScreen() {
             {javaProfile.gameVersion}. Create a 1.21.1 profile or rebuild companion-mod for this
             version before installing the HUD.
           </div>
+          <Button variant="primary" size="sm" loading={creating} onClick={() => void createHudProfile()}>
+            Create HUD profile
+          </Button>
         </div>
       ) : null}
 
