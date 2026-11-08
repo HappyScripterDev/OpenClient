@@ -145,6 +145,11 @@ gradle build
 Copy `build/libs/openclient-1.0.0.jar` into the profile `mods` folder. The mod requires Fabric API
 and Minecraft 1.21.1 by default; adjust `gradle.properties` for other versions.
 
+The launcher can also do it for you: open **Client HUD** and use **Install HUD**. That installs
+Fabric API from Modrinth and copies the bundled OpenClient Mod jar into the profile (the launcher
+never bundles third-party mods). The bundled jar targets Minecraft 1.21.1; rebuild it for other
+versions.
+
 HUD configuration is stored in `config/openclient-hud.json` inside the profile game directory.
 The launcher writes the same file, so both editors stay in sync.
 

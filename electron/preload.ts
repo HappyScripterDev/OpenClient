@@ -152,6 +152,8 @@ const api: OpenClientApi = {
   hud: {
     get: (profileId) => invoke<HudConfig>("hud:get", profileId),
     save: (profileId, config) => invoke<HudConfig>("hud:save", profileId, config),
+    install: (profileId) =>
+      invoke<{ installed: string[]; jarPath: string }>("hud:install", profileId),
   },
   performance: {
     apply: (profileId, preset) =>

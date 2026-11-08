@@ -442,6 +442,10 @@ export function registerIpc(): void {
       hudService.save(profileId, config as never),
   );
 
+  handle("hud:install", async (profileId: string) =>
+    hudService.installCompanion(profileId),
+  );
+
   handle(
     "performance:apply",
     async (profileId: string, preset: "ultra" | "balanced" | "quality") =>

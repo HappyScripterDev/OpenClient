@@ -9,6 +9,7 @@ import {
   MemoryStick,
   Monitor,
   RotateCcw,
+  Download,
   Save,
   Shield,
   Users,
@@ -46,6 +47,7 @@ export function HudScreen() {
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
   const [dragging, setDragging] = useState<HudElementKey | null>(null);
+  const [installing, setInstalling] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
   const previewRef = useRef<HTMLDivElement>(null);
   const [now, setNow] = useState(Date.now());
@@ -107,6 +109,20 @@ export function HudScreen() {
       appStore.toast("Could not save HUD", "error", errorMessage(error));
     } finally {
       setSaving(false);
+    }
+  };
+
+  const installCompanion = async (): Promise<void> => {
+    if (!javaProfile) return;
+    setInstalling(true);
+    try {
+      const result = await unwrap(window.openclient.hud.install(javaProfile.id));
+      await appStore.refreshProfiles();
+      appStore.toast("HUD mod installed", "success", result.installed.join(" and "));
+    } catch (error) {
+      appStore.toast("HUD setup failed", "error", errorMessage(error));
+    } finally {
+      setInstalling(false);
     }
   };
 
@@ -214,6 +230,17 @@ export function HudScreen() {
             The companion mod is a Fabric mod and also runs on Quilt. This profile uses{" "}
             {loaderLabel(javaProfile.loader)}. Switch the profile loader or create a Fabric profile
             to use the HUD.
+          </div>
+        </div>
+      ) : null}
+      {!javaProfile.gameVersion.startsWith("1.21.") ? (
+        <div className="notice is-warning" style={{ marginBottom: 16 }}>
+          <Monitor size={16} />
+          <div>
+            <div className="notice-title">Companion build target</div>
+            The bundled companion jar targets Minecraft 1.21.1. This profile uses{" "}
+            {javaProfile.gameVersion}. Create a 1.21.1 profile or rebuild companion-mod for this
+            version before installing the HUD.
           </div>
         </div>
       ) : null}
@@ -490,6 +517,28 @@ export function HudScreen() {
                     The overlay is rendered by the OpenClient Mod in companion-mod. It is a normal
                     client-side Fabric mod with no gameplay advantage.
                   </p>
+                </div>
+                <div className="setting-row">
+                  <div className="setting-info">
+                    <div className="setting-name">One-click setup</div>
+                    <div className="setting-hint">
+                      Installs Fabric API from Modrinth and copies the OpenClient companion jar
+                      into this profile. Nothing third-party is bundled with the launcher.
+                    </div>
+                  </div>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    icon={<Download size={14} />}
+                    loading={installing}
+                    disabled={
+                      (javaProfile.loader !== "fabric" && javaProfile.loader !== "quilt") ||
+                      !javaProfile.gameVersion.startsWith("1.21.")
+                    }
+                    onClick={() => void installCompanion()}
+                  >
+                    Install HUD
+                  </Button>
                 </div>
                 <div className="setting-row">
                   <div className="setting-info">

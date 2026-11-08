@@ -156,6 +156,7 @@ export interface CatalogApi {
 export interface HudApi {
   get(profileId: string): Promise<ApiResult<HudConfig>>;
   save(profileId: string, config: Partial<HudConfig>): Promise<ApiResult<HudConfig>>;
+  install(profileId: string): Promise<ApiResult<{ installed: string[]; jarPath: string }>>;
 }
 
 export interface ContentApi {

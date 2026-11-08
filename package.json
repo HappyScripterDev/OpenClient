@@ -110,6 +110,12 @@
         "zip"
       ],
       "artifactName": "OpenClient-${version}-mac-${arch}.${ext}"
-    }
+    },
+    "extraResources": [
+      {
+        "from": "resources/openclient-companion.jar",
+        "to": "openclient-companion.jar"
+      }
+    ]
   }
 }
