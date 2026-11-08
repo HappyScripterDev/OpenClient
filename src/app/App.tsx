@@ -195,6 +195,7 @@ export default function App() {
       className={`app-window${state.windowState.maximized ? " is-maximized" : ""}`}
       data-theme={state.settings.theme}
       data-edition={state.edition}
+      data-route={state.route}
       style={
         {
           "--sidebar-current": "64px",

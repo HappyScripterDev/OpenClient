@@ -5567,3 +5567,134 @@ select.input option {
     padding: 4px 4px 4px;
   }
 }
+
+/* final Liner parity */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+.liner-heading h1 {
+  font-size: 36px;
+}
+
+.liner-row {
+  border-radius: 8px;
+}
+
+.liner-row:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.liner-row-title {
+  font-size: 15.5px;
+  font-weight: 400;
+}
+
+.liner-row-sub {
+  font-size: 13.5px;
+  font-weight: 300;
+}
+
+.liner-row-meta {
+  font-size: 12.5px;
+}
+
+.rail-item {
+  opacity: 0.55;
+}
+
+.rail-item.is-active {
+  opacity: 1;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.settings-section-head {
+  padding: 16px 16px 14px;
+}
+
+.setting-row {
+  padding: 15px 16px;
+}
+
+.setting-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.setting-hint {
+  font-size: 11.5px;
+}
+
+.dialog {
+  border-radius: 18px;
+}
+
+@media (max-width: 760px) {
+  .liner-heading h1 {
+    font-size: 28px;
+  }
+}
+
+/* Content-driven ambient colour, like Liner's page backdrops */
+.app-window {
+  --ambient-a: rgba(109, 75, 255, 0.28);
+  --ambient-b: rgba(92, 55, 190, 0.12);
+}
+
+.app-window[data-route="mods"] {
+  --ambient-a: rgba(50, 145, 135, 0.2);
+  --ambient-b: rgba(30, 90, 100, 0.1);
+}
+
+.app-window[data-route="hud"] {
+  --ambient-a: rgba(170, 65, 110, 0.2);
+  --ambient-b: rgba(110, 40, 80, 0.1);
+}
+
+.app-window[data-route="packs"] {
+  --ambient-a: rgba(170, 125, 50, 0.16);
+  --ambient-b: rgba(110, 80, 30, 0.09);
+}
+
+.app-window[data-route="servers"] {
+  --ambient-a: rgba(55, 105, 190, 0.2);
+  --ambient-b: rgba(30, 60, 130, 0.1);
+}
+
+.app-window[data-route="settings"] {
+  --ambient-a: rgba(95, 95, 135, 0.18);
+  --ambient-b: rgba(55, 55, 90, 0.1);
+}
+
+.app-window[data-route="logs"] {
+  --ambient-a: rgba(55, 125, 95, 0.16);
+  --ambient-b: rgba(30, 80, 60, 0.09);
+}
+
+.app-window[data-route="bedrock-content"] {
+  --ambient-a: rgba(50, 145, 135, 0.2);
+  --ambient-b: rgba(30, 90, 100, 0.1);
+}
+
+.app-window[data-route="bedrock-worlds"] {
+  --ambient-a: rgba(55, 105, 190, 0.2);
+  --ambient-b: rgba(30, 60, 130, 0.1);
+}
+
+.app-ambient::before {
+  background:
+    radial-gradient(1100px 620px at 16% -10%, var(--ambient-a), transparent 62%),
+    radial-gradient(900px 560px at 88% 0%, var(--ambient-b), transparent 68%),
+    radial-gradient(900px 700px at 50% 118%, rgba(12, 12, 18, 0.5), transparent 64%),
+    linear-gradient(160deg, #0d0a15 0%, #08080b 55%, #070709 100%);
+}
