@@ -6,7 +6,7 @@ runtimes, launches the game, browses mods and packs, pings servers, backs up Bed
 renders a client-side HUD through an optional companion Fabric mod.
 
 - Public repository: <https://github.com/HappyScripterDev/OpenClient.git>
-- Release v1.0.0: <https://github.com/HappyScripterDev/OpenClient/releases/tag/v1.0.0>
+- Release v1.0.0: <https://github.com/HappyScripterDev/OpenClient/releases/latest>
 - Project website: <https://happyscripterdev.github.io/OpenClient/> ([source](website/index.html))
 - Design notes: [`DESIGN_NOTES.md`](DESIGN_NOTES.md)
 - Architecture: [`ARCHITECTURE.md`](ARCHITECTURE.md)

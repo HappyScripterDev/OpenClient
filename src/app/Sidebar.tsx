@@ -37,35 +37,38 @@ export function Sidebar() {
 
   return (
     <aside className="sidebar rail" aria-label="Navigation">
-      {main.map((item) => {
-        const Icon = ICONS[item.route];
-        return (
+      <nav className="rail-nav">
+        {main.map((item) => {
+          const Icon = ICONS[item.route];
+          return (
+            <button
+              key={item.route}
+              type="button"
+              className={classNames("rail-item", route === item.route && "is-active")}
+              onClick={() => appStore.navigate(item.route)}
+              aria-current={route === item.route ? "page" : undefined}
+              aria-label={item.label}
+              title={item.label}
+            >
+              <Icon size={26} strokeWidth={1.8} />
+            </button>
+          );
+        })}
+      </nav>
+      <div className="rail-bottom">
+        {settings ? (
           <button
-            key={item.route}
             type="button"
-            className={classNames("rail-item", route === item.route && "is-active")}
-            onClick={() => appStore.navigate(item.route)}
-            aria-current={route === item.route ? "page" : undefined}
-            aria-label={item.label}
-            title={item.label}
+            className={classNames("rail-item", route === settings.route && "is-active")}
+            onClick={() => appStore.navigate(settings.route)}
+            aria-current={route === settings.route ? "page" : undefined}
+            aria-label={settings.label}
+            title={settings.label}
           >
-            <Icon size={20} strokeWidth={1.9} />
+            <Settings2 size={26} strokeWidth={1.8} />
           </button>
-        );
-      })}
-      <div className="rail-spacer" />
-      {settings ? (
-        <button
-          type="button"
-          className={classNames("rail-item", route === settings.route && "is-active")}
-          onClick={() => appStore.navigate(settings.route)}
-          aria-current={route === settings.route ? "page" : undefined}
-          aria-label={settings.label}
-          title={settings.label}
-        >
-          <Settings2 size={20} strokeWidth={1.9} />
-        </button>
-      ) : null}
+        ) : null}
+      </div>
     </aside>
   );
 }

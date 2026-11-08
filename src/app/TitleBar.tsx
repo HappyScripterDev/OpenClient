@@ -2,11 +2,9 @@ import { Boxes, Coffee, Minus, Square, Copy, X } from "lucide-react";
 import logo from "../../assets/OcTransparent.png";
 import { appStore, useAppState } from "../lib/store";
 import { classNames } from "../lib/format";
-import { Avatar } from "../ui/Avatar";
 
 export function TitleBar() {
-  const { edition, accounts, info, windowState } = useAppState();
-  const activeAccount = accounts.find((account) => account.active);
+  const { edition, info, windowState } = useAppState();
   const isMac = info?.platform === "darwin";
 
   return (
@@ -17,50 +15,40 @@ export function TitleBar() {
         void window.openclient.app.window.toggleMaximize();
       }}
     >
-      <div className="titlebar-brand">
-        <img className="brand-mark" src={logo} alt="" />
-        <span className="brand-name">OpenClient</span>
-      </div>
+      <button
+        type="button"
+        className="titlebar-logo"
+        onClick={() => appStore.navigate("home")}
+        aria-label="OpenClient home"
+        title="OpenClient"
+      >
+        <img src={logo} alt="" />
+      </button>
       <div className="titlebar-right">
-        <div className="titlebar-edition" data-edition={edition}>
+        <div className="titlebar-island titlebar-edition" data-edition={edition}>
           <button
             type="button"
-            className={classNames("titlebar-edition-btn", edition === "java" && "is-active")}
+            className={classNames("titlebar-icon-btn", edition === "java" && "is-active")}
             onClick={() => void appStore.setEdition("java")}
             aria-pressed={edition === "java"}
             title="Java Edition"
+            aria-label="Java Edition"
           >
-            <Coffee size={13} />
-            Java
+            <Coffee size={16} />
           </button>
           <button
             type="button"
-            className={classNames("titlebar-edition-btn", edition === "bedrock" && "is-active")}
+            className={classNames("titlebar-icon-btn", edition === "bedrock" && "is-active")}
             onClick={() => void appStore.setEdition("bedrock")}
             aria-pressed={edition === "bedrock"}
             title="Bedrock Edition"
+            aria-label="Bedrock Edition"
           >
-            <Boxes size={13} />
-            Bedrock
+            <Boxes size={16} />
           </button>
         </div>
-        <button
-          type="button"
-          className="titlebar-account"
-          onClick={() => appStore.navigate("accounts")}
-          title={activeAccount ? activeAccount.username : "Accounts"}
-          aria-label="Accounts"
-        >
-          {activeAccount ? (
-            <Avatar uuid={activeAccount.uuid} name={activeAccount.username} size={28} />
-          ) : (
-            <span className="avatar-fallback" style={{ width: 28, height: 28, borderRadius: 9 }}>
-              ?
-            </span>
-          )}
-        </button>
         {!isMac ? (
-          <div className="window-controls">
+          <div className="titlebar-island window-controls">
             <button
               type="button"
               className="window-btn"

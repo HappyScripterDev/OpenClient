@@ -37,6 +37,15 @@ import {
   unwrap,
 } from "../lib/format";
 
+const ROW_GRADIENTS = [
+  "linear-gradient(135deg, #3b2b6b, #171225)",
+  "linear-gradient(135deg, #1c3a44, #0d1a1f)",
+  "linear-gradient(135deg, #4a2330, #1d0f16)",
+  "linear-gradient(135deg, #23345e, #10172a)",
+  "linear-gradient(135deg, #3c2f23, #19140f)",
+  "linear-gradient(135deg, #2c3d2b, #121a12)",
+];
+
 const COVER_BACKGROUNDS: Record<string, string> = {
   play: "linear-gradient(145deg, #2b1d54 0%, #1b1330 55%, #0c0915 100%)",
   performance: "linear-gradient(145deg, #123944 0%, #0b1e27 60%, #080c12 100%)",
@@ -149,7 +158,6 @@ export function HomeScreen() {
           </span>
           <h1>
             {running ? "In game" : "Ready to play"}
-            <span> / {edition === "java" ? "Java" : "Bedrock"}</span>
           </h1>
         </div>
         <div className="page-actions">
@@ -322,7 +330,18 @@ export function HomeScreen() {
             <div className="liner-list">
               {recent.map((item) => (
                 <button type="button" className="liner-row" key={item.id} onClick={item.action}>
-                  <span className="liner-art">{item.art}</span>
+                  <span
+                    className="liner-art"
+                    style={{
+                      background:
+                        ROW_GRADIENTS[
+                          [...item.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) %
+                            ROW_GRADIENTS.length
+                        ],
+                    }}
+                  >
+                    {item.art}
+                  </span>
                   <span className="liner-row-main">
                     <span className="liner-row-title">{item.title}</span>
                     <span className="liner-row-sub">{item.sub}</span>

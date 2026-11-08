@@ -289,7 +289,7 @@ export class AppStore {
     if (edition === "java" && (route === "bedrock-content" || route === "bedrock-worlds")) {
       return "home";
     }
-    if (edition === "bedrock" && (route === "mods" || route === "packs")) {
+    if (edition === "bedrock" && (route === "mods" || route === "packs" || route === "hud")) {
       return "home";
     }
     return route;

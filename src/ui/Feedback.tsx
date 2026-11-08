@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import logo from "../../assets/OcTransparent.png";
 import { classNames } from "../lib/format";
 
 export function Skeleton({
@@ -65,7 +64,6 @@ export function EmptyState({
 }
 
 export function PageHeader({
-  eyebrow,
   title,
   subtitle,
   actions,
@@ -78,15 +76,7 @@ export function PageHeader({
   return (
     <div className="page-header">
       <div className="page-heading">
-        <div className="page-heading-row">
-          <span className="section-orb page-orb">
-            <img src={logo} alt="" />
-          </span>
-          <div className="page-heading-text">
-            {eyebrow ? <div className="page-eyebrow">{eyebrow}</div> : null}
-            <h1 className="page-title">{title}</h1>
-          </div>
-        </div>
+        <h1 className="page-title">{title}</h1>
         {subtitle ? <p className="page-subtitle">{subtitle}</p> : null}
       </div>
       {actions ? <div className="page-actions">{actions}</div> : null}

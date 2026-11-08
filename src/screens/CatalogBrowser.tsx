@@ -443,7 +443,19 @@ export function CatalogBrowser({
                   {projects.map((project) => {
                     const isInstalled = installedIds.has(project.id);
                     return (
-                      <article className="project-card" key={`${project.source}:${project.id}`}>
+                      <article
+                        className="project-card"
+                        key={`${project.source}:${project.id}`}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => void openDetail(project)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            void openDetail(project);
+                          }
+                        }}
+                      >
                         <div className="project-head">
                           {project.iconUrl ? (
                             <img
@@ -466,29 +478,9 @@ export function CatalogBrowser({
                               {isInstalled ? <Badge variant="success">Installed</Badge> : null}
                             </div>
                             <p className="project-author">
-                              by {project.author || "Unknown"} · {formatNumber(project.downloads)} downloads
+                              {project.author || "Unknown"} · {project.license}
                             </p>
                           </div>
-                        </div>
-                        <p className="project-summary">{project.summary}</p>
-                        <div className="project-meta">
-                          <span>{project.license}</span>
-                          <span>·</span>
-                          <span>Updated {formatDate(project.updatedAt)}</span>
-                        </div>
-                        <div className="project-actions">
-                          <Button variant="primary" size="sm" onClick={() => void openDetail(project)}>
-                            View versions
-                          </Button>
-                          {project.externalUrl ? (
-                            <IconButton
-                              label="Open project page"
-                              size="sm"
-                              onClick={() => void window.openclient.app.openExternal(project.externalUrl as string)}
-                            >
-                              <ExternalLink size={15} />
-                            </IconButton>
-                          ) : null}
                         </div>
                       </article>
                     );

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { spawn, type ChildProcess } from "node:child_process";
+import { app } from "electron";
 import readline from "node:readline";
 import { EventEmitter } from "node:events";
 import AdmZip from "adm-zip";
@@ -186,7 +187,7 @@ class LaunchService extends EventEmitter {
       versionName: chain.merged.id,
       versionType: chain.merged.type ?? "release",
       launcherName: "OpenClient",
-      launcherVersion: "1.0.0",
+      launcherVersion: app.getVersion(),
       javaMajor: prepared.runtimeMajor,
     };
 
@@ -224,7 +225,7 @@ class LaunchService extends EventEmitter {
       "-Dfile.encoding=UTF-8",
       "-Djava.awt.headless=false",
       "-Dminecraft.launcher.brand=OpenClient",
-      "-Dminecraft.launcher.version=1.0.0",
+      `-Dminecraft.launcher.version=${app.getVersion()}`,
     ];
     const jvmArgs = [
       ...versionJvmArgs,

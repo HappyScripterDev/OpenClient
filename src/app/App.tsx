@@ -17,7 +17,7 @@ import { BedrockWorldsScreen } from "../screens/BedrockWorldsScreen";
 import { ToastLayer } from "../ui/ToastLayer";
 import { EulaDialog } from "../ui/EulaDialog";
 import { LaunchOverlay } from "../ui/LaunchOverlay";
-import { ActivityBar } from "../ui/ActivityBar";
+import { ProfileBar } from "../ui/ProfileBar";
 import { LoginGate } from "../ui/LoginGate";
 import { Button } from "../ui/Button";
 
@@ -213,7 +213,7 @@ export default function App() {
           </div>
         </main>
       </div>
-      <ActivityBar />
+      <ProfileBar />
       <ToastLayer />
       <LaunchOverlay />
       <EulaDialog />
